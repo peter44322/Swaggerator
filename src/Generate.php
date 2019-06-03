@@ -61,6 +61,26 @@ class Generate extends Command
 
     private function schemaGenerator($tag,$name,$method,$url,$prames){
 
+        $default = [' *     @OA\Parameter(
+ *          name="Content-Type",
+ *          description="----",
+ *          required=true,
+ *          in="header",
+ *          @OA\Schema(
+ *              type="string",
+ *           default="application/json",
+ *          )','
+ *      ),@OA\Parameter(
+ *          name="X-Requested-With",
+ *          description="----",
+ *          required=true,
+ *          in="header",
+ *          @OA\Schema(
+ *              type="string",
+ *           default="XMLHttpRequest",
+ *          )
+ *      ),'];
+
         $prames =array_map(function ($pram){
             return '
                  *      @OA\Parameter(
@@ -75,6 +95,7 @@ class Generate extends Command
             ';
         },$prames);
 
+        $prames = array_merge($prames,$default);
         return '/**
                  * @OA\\'.$method.'(
                  *      path="/'.$url.'",
