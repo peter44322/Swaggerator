@@ -47,9 +47,8 @@ class Generate extends Command
         }
 
         if (!file_exists($filePath)) {
-            echo file_put_contents($filePath,'<?php
+             file_put_contents($filePath,'<?php
             ');
-
         }
 
 
@@ -78,7 +77,7 @@ class Generate extends Command
 
         return '/**
                  * @OA\\'.$method.'(
-                 *      path="'.$url.'",
+                 *      path="/'.$url.'",
                  *      operationId="---",
                  *      tags={"'.$tag.'"},
                  *      summary="----",
