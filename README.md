@@ -96,7 +96,7 @@ Contributing
 
 Security
 ---
-If you discover any security related issues, please email <your@mail.tld> or use the issue tracker of GitHub.
+If you discover any security related issues, please email p.pator@outlook.com or use the issue tracker of GitHub.
 
 About
 ---
