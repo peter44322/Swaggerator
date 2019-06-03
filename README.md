@@ -39,6 +39,47 @@ php artisan swaggerator:generate TagName requestName path/to/request --method=Ge
 
 ```
 
+
+Output
+---
+output folder  `app/Document/TagName.php`
+```php
+/**
+ * @OA\Post(
+ *      path="/path/to/request ",
+ *      operationId="---",
+ *      tags={"TagName"},
+ *      summary="----",
+ *      description="---",
+ *      @OA\Parameter(
+ *          name="email",
+ *          description="----",
+ *          required=true,
+ *          in="path",
+ *          @OA\Schema(
+ *              type="integer"
+ *          )
+ *      ),
+ *      @OA\Parameter(
+ *          name="password",
+ *          description="----",
+ *          required=true,
+ *          in="path",
+ *          @OA\Schema(
+ *              type="integer"
+ *          )
+ *      ),
+ *      @OA\Response(
+ *          response=200,
+ *          description="successful operation"
+ *       ),
+ *      @OA\Response(response=400, description="Bad request"),
+ *      @OA\Response(response=404, description="Resource Not Found"),
+ * )
+ */
+```
+
+
 Changelog
 ---
 Check [CHANGELOG](CHANGELOG.md) for the changelog
