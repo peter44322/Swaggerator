@@ -17,6 +17,7 @@
   ],
   "require": {
     "php": "^7.1",
+    "darkaonline/l5-swagger": "5.8.*",
     "illuminate/support": "5.8.*"
   },
   "require-dev": {
