@@ -55,13 +55,14 @@ class Generate extends Command
 
         $schema = $this->schemaGenerator($tag,$name,$this->option('method'),$this->argument('url'),$this->option('prams'));
 
-        echo file_put_contents($filePath,$schema,FILE_APPEND);
+         file_put_contents($filePath,$schema,FILE_APPEND);
+         $this->info($tag.' Created');
 
     }
 
     private function schemaGenerator($tag,$name,$method,$url,$prames){
 
-        array_map(function ($pram){
+        $prames =array_map(function ($pram){
             return '
                  *      @OA\Parameter(
                  *          name="'.$pram.'",
@@ -74,6 +75,7 @@ class Generate extends Command
                  *      ),
             ';
         },$prames);
+
         return '/**
                  * @OA\\'.$method.'(
                  *      path="'.$url.'",
@@ -81,7 +83,7 @@ class Generate extends Command
                  *      tags={"'.$tag.'"},
                  *      summary="----",
                  *      description="---",
-                 '.implode('\n',$prames).'
+                 '.implode('',$prames).'
                  *      @OA\Response(
                  *          response=200,
                  *          description="successful operation"
@@ -96,5 +98,7 @@ class Generate extends Command
                  * )
                  */
                 ';
+
+
     }
 }
